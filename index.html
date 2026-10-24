@@ -1,198 +1,1066 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Indian Taxi | Ride Your Way</title>
+<title>Indian Taxi | સફર તમારી, સેવા અમારી</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+:root {
+  --navy: #10243e;
+  --blue: #1b477b;
+  --yellow: #ffca3a;
+  --bg: #f5f7fb;
+  --white: #ffffff;
+  --text: #182538;
+  --muted: #68778c;
+  --border: #e1e7ef;
+  --green: #14845c;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f8fa;
-      color: #172033;
-      line-height: 1.6;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    header {
-      background: #ffffff;
-      padding: 18px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #e5e7eb;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #153b72;
-    }
+body {
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
 
-    .logo span {
-      color: #f4a900;
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    .hero {
-      background: #153b72;
-      color: white;
-      padding: 55px 22px;
-      text-align: center;
-    }
+button, input, select {
+  font: inherit;
+}
 
-    .hero h1 {
-      font-size: 34px;
-      line-height: 1.2;
-      margin-bottom: 18px;
-    }
+button {
+  cursor: pointer;
+}
 
-    .hero p {
-      max-width: 500px;
-      margin: 0 auto 25px;
-      color: #e5edff;
-    }
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 6px;
-    }
+header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
-    .primary {
-      background: #f4a900;
-      color: #172033;
-    }
+.navbar {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
 
-    .secondary {
-      background: white;
-      color: #153b72;
-    }
+.brand {
+  font-size: 23px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -1px;
+}
 
-    .section {
-      max-width: 850px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
+.brand span {
+  color: #c98c00;
+}
 
-    .section h2 {
-      margin-bottom: 18px;
-      text-align: center;
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 14px;
+  font-weight: 700;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
+.nav-links a:hover {
+  color: var(--blue);
+}
 
-    .card {
-      background: white;
-      padding: 23px;
-      border-radius: 14px;
-      border: 1px solid #e5e7eb;
-    }
+.nav-book {
+  background: var(--yellow);
+  padding: 10px 16px;
+  border-radius: 10px;
+}
 
-    .card h3 {
-      margin-bottom: 8px;
-      color: #153b72;
-    }
+.hero {
+  background:
+    radial-gradient(circle at 85% 15%, #315b8b 0, transparent 35%),
+    linear-gradient(125deg, #10243e, #173e6b);
+  color: white;
+  padding: 70px 0 65px;
+  overflow: hidden;
+}
 
-    .card p {
-      color: #606b7d;
-      margin-bottom: 15px;
-    }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 30px;
+  align-items: center;
+}
 
-    footer {
-      margin-top: 45px;
-      padding: 25px;
-      background: #172033;
-      color: white;
-      text-align: center;
-    }
+.eyebrow {
+  color: var(--yellow);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-    @media (min-width: 650px) {
-      .cards {
-        grid-template-columns: 1fr 1fr;
-      }
+.hero h1 {
+  font-size: clamp(36px, 6vw, 62px);
+  line-height: 1.12;
+  margin: 14px 0 18px;
+  letter-spacing: -1.5px;
+}
 
-      .hero h1 {
-        font-size: 48px;
-      }
-    }
-  </style>
+.hero p {
+  color: #d8e5f4;
+  max-width: 510px;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 19px;
+  font-weight: 800;
+  transition: transform .15s, opacity .15s;
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+.btn-yellow {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+.btn-white {
+  background: white;
+  color: var(--navy);
+  border: 1px solid var(--border);
+}
+
+.hero-art {
+  min-height: 250px;
+  border: 1px solid #ffffff25;
+  border-radius: 28px;
+  background: #ffffff0d;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.hero-car {
+  font-size: 100px;
+  line-height: 1.2;
+  filter: drop-shadow(0 15px 18px #0005);
+}
+
+.hero-art strong {
+  display: block;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.hero-art small {
+  color: #d8e5f4;
+}
+
+.section {
+  padding: 58px 0;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+.section-head h2 {
+  color: var(--navy);
+  font-size: clamp(27px, 4vw, 38px);
+  line-height: 1.25;
+  margin: 8px 0 12px;
+}
+
+.section-head p {
+  color: var(--muted);
+}
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 35px #142b4807;
+}
+
+.panel h3 {
+  font-size: 21px;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+
+.panel-subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 750;
+  margin-top: 5px;
+}
+
+input, select {
+  width: 100%;
+  border: 1px solid #d6deea;
+  background: white;
+  color: var(--text);
+  border-radius: 11px;
+  padding: 13px;
+  min-height: 48px;
+}
+
+input:focus, select:focus {
+  outline: 3px solid #ffca3a55;
+  border-color: #c98c00;
+}
+
+.location-box {
+  position: relative;
+}
+
+.location-box input {
+  padding-left: 43px;
+}
+
+.location-icon {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  font-size: 18px;
+}
+
+.ride-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin: 5px 0 12px;
+}
+
+.ride-choice {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  text-align: center;
+  padding: 12px 4px;
+  cursor: pointer;
+  display: block;
+}
+
+.ride-choice:has(input:checked) {
+  border: 2px solid var(--blue);
+  background: #edf4ff;
+}
+
+.ride-choice input {
+  width: 17px;
+  height: 17px;
+  min-height: auto;
+  padding: 0;
+  margin: 0 0 6px;
+}
+
+.ride-choice span {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ride-choice small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.fare-card {
+  background: #f0f5ff;
+  border: 1px solid #dbe6fa;
+  border-radius: 15px;
+  padding: 17px;
+  margin: 10px 0;
+}
+
+.fare-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.fare-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.fare-number {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.fare-details {
+  border-top: 1px solid #dbe6fa;
+  margin-top: 12px;
+  padding-top: 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.fare-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.fare-details strong {
+  color: var(--text);
+}
+
+.notice {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.feature-list {
+  display: grid;
+  gap: 13px;
+  margin: 20px 0;
+}
+
+.feature {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+
+.feature-icon {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  background: #edf4ff;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.feature strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.feature p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.stats {
+  background: white;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 25px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 15px;
+}
+
+.stats strong {
+  display: block;
+  color: var(--navy);
+  font-size: 18px;
+}
+
+.stats span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.service-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 22px;
+}
+
+.service-card .emoji {
+  font-size: 34px;
+}
+
+.service-card h3 {
+  margin: 8px 0;
+  color: var(--navy);
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.driver-section {
+  background: #eaf0f8;
+}
+
+.driver-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.driver-copy h2 {
+  color: var(--navy);
+  font-size: 35px;
+  line-height: 1.2;
+  margin: 10px 0 15px;
+}
+
+.driver-copy p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.driver-panel {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid var(--border);
+}
+
+.driver-panel h3 {
+  color: var(--navy);
+  margin-bottom: 15px;
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.safety-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.safety-card h3 {
+  color: var(--navy);
+  margin: 8px 0;
+}
+
+.safety-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.support {
+  background: var(--navy);
+  color: white;
+  padding: 40px 0;
+}
+
+.support-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.support p {
+  color: #d8e5f4;
+  font-size: 14px;
+}
+
+footer {
+  background: #09182b;
+  color: white;
+  padding: 30px 0;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+footer p, footer a {
+  color: #c5d1e0;
+  font-size: 13px;
+}
+
+footer .brand {
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    padding: 13px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+    gap: 13px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 45px 0;
+  }
+
+  .hero-grid,
+  .booking-layout,
+  .driver-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    min-height: 180px;
+  }
+
+  .hero-car {
+    font-size: 70px;
+  }
+
+  .section {
+    padding: 42px 0;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .services,
+  .safety-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ride-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Indian <span>Taxi 🚕</span></div>
-  </header>
+<header>
+  <div class="container navbar">
+    <a class="brand" href="#home">INDIAN <span>TAXI 🚕</span></a>
 
-  <section class="hero">
-    <h1>Your Ride.<br> Your Way.</h1>
+    <nav class="nav-links">
+      <a href="#booking">રાઈડ બુક કરો</a>
+      <a href="#services">અમારી સેવાઓ</a>
+      <a href="#driver">ડ્રાઈવર બનો</a>
+      <a href="#safety">સુરક્ષા</a>
+      <a class="nav-book" href="#booking">Book Taxi ↗</a>
+    </nav>
+  </div>
+</header>
 
-    <p>
-      Welcome to Indian Taxi.
-      Book your ride or join our driver partner network.
-    </p>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">તમારી મુસાફરીનો નવો અનુભવ</div>
+      <h1>સફર તમારી,<br>સેવા અમારી.</h1>
+      <p>
+        શહેરની મુસાફરી હોય કે લાંબી સફર,
+        તમારી જરૂરિયાત પ્રમાણે વાહન પસંદ કરો.
+        Indian Taxi સાથે મુસાફરીની શરૂઆત કરો.
+      </p>
+      <a class="btn btn-yellow" href="#booking">
+        🚕 રાઈડ બુક કરો
+      </a>
+      <a class="btn btn-white" href="#driver">
+        ડ્રાઈવર પાર્ટનર બનો
+      </a>
+    </div>
 
-    <a href="#booking" class="btn primary">
-      Book a Taxi
-    </a>
-
-    <a href="#driver" class="btn secondary">
-      Become a Driver
-    </a>
-  </section>
-
-  <section class="section" id="booking">
-    <h2>Book Your Ride</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Passenger Booking</h3>
-
-        <p>
-          Find a ride for your daily travel.
-          Passenger booking will be available
-          after our booking system is connected.
-        </p>
-
-        <a href="#booking" class="btn primary">
-          Coming Soon
-        </a>
-      </div>
-
-      <div class="card" id="driver">
-        <h3>Driver Registration</h3>
-
-        <p>
-          Join Indian Taxi as a driver partner.
-          Registration and document verification
-          will be available in the next phase.
-        </p>
-
-        <a href="#driver" class="btn secondary">
-          Coming Soon
-        </a>
+    <div class="hero-art">
+      <div>
+        <div class="hero-car">🚕</div>
+        <strong>તમારા શહેરની તમારી ટેક્સી</strong>
+        <small>સુવિધા • પસંદગી • વિશ્વાસ</small>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>Indian Taxi 🚕</p>
-    <p>Connecting Passengers and Drivers</p>
-    <p>© 2026 Indian Taxi</p>
-  </footer>
+<section class="section" id="booking">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Ride Booking</div>
+      <h2>તમારી આગામી સફર અહીંથી શરૂ થાય છે</h2>
+      <p>સ્થળ પસંદ કરો, વાહન પસંદ કરો અને અંદાજિત ભાડું જુઓ.</p>
+    </div>
+
+    <div class="booking-layout">
+      <div class="panel">
+        <h3>રાઈડની વિગતો</h3>
+        <p class="panel-subtitle">તમારી મુસાફરીની માહિતી દાખલ કરો.</p>
+
+        <form id="bookingForm">
+          <label for="passengerName">તમારું નામ</label>
+          <input id="passengerName" name="passengerName"
+            autocomplete="name" placeholder="પૂરું નામ" required>
+
+          <label for="passengerPhone">મોબાઇલ નંબર</label>
+          <input id="passengerPhone" name="passengerPhone"
+            type="tel" inputmode="numeric"
+            pattern="[6-9][0-9]{9}" maxlength="10"
+            placeholder="10 અંકનો મોબાઇલ નંબર" required>
+
+          <label for="pickup">Pickup Location</label>
+          <div class="location-box">
+            <span class="location-icon">📍</span>
+            <input id="pickup" name="pickup"
+              placeholder="ક્યાંથી પિકઅપ કરવાનું?" required>
+          </div>
+
+          <label for="drop">Drop Location</label>
+          <div class="location-box">
+            <span class="location-icon">🏁</span>
+            <input id="drop" name="drop"
+              placeholder="ક્યાં જવાનું છે?" required>
+          </div>
+
+          <label>તમારું વાહન પસંદ કરો</label>
+          <div class="ride-grid">
+            <label class="ride-choice">
+              <input type="radio" name="rideType"
+                value="Auto" data-rate="10" data-base="25">
+              <span>🛺 Auto</span>
+              <small>શહેરની સફર</small>
+            </label>
+
+            <label class="ride-choice">
+              <input type="radio" name="rideType"
+                value="Mini" data-rate="12" data-base="30" checked>
+              <span>🚗 Mini</span>
+              <small>રોજિંદી મુસાફરી</small>
+            </label>
+
+            <label class="ride-choice">
+              <input type="radio" name="rideType"
+                value="Sedan" data-rate="16" data-base="40">
+              <span>🚘 Sedan</span>
+              <small>વધુ સુવિધા</small>
+            </label>
+
+            <label class="ride-choice">
+              <input type="radio" name="rideType"
+                value="SUV" data-rate="22" data-base="50">
+              <span>🚙 SUV</span>
+              <small>વધુ જગ્યા</small>
+            </label>
+          </div>
+
+          <label for="distance">અંદાજિત અંતર (કિલોમીટર)</label>
+          <input id="distance" name="distance" type="number"
+            min="1" max="500" step="1"
+            placeholder="ઉદાહરણ: 12" required>
+
+          <div class="fare-card">
+            <div class="fare-top">
+              <div>
+                <div class="fare-label">અંદાજિત રાઈડ ભાડું</div>
+                <div class="fare-number" id="fare">₹0</div>
+              </div>
+              <span>🧾</span>
+            </div>
+
+            <div class="fare-details">
+              <div><span>Owner Commission (20%)</span>
+                <strong id="ownerAmount">₹0</strong></div>
+              <div><span>Driver Share (80%)</span>
+                <strong id="driverAmount">₹0</strong></div>
+            </div>
+          </div>
+
+          <button class="btn btn-yellow" type="submit">
+            બુકિંગ આગળ વધારો →
+          </button>
+
+          <p class="notice" id="bookingMessage" aria-live="polite">
+            આ Demo છે. વાસ્તવિક બુકિંગ માટે Backend જરૂરી છે.
+          </p>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h3>Indian Taxi કેમ પસંદ કરશો?</h3>
+        <p class="panel-subtitle">
+          મુસાફરી માટે ઉપયોગી સુવિધાઓ એક જ જગ્યાએ.
+        </p>
+
+        <div class="feature-list">
+          <div class="feature">
+            <div class="feature-icon">🧭</div>
+            <div>
+              <strong>તમારા માર્ગની પસંદગી</strong>
+              <p>Pickup અને Drop Location દાખલ કરીને સફરની વિગતો તૈયાર કરો.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🚘</div>
+            <div>
+              <strong>વાહનના વિકલ્પો</strong>
+              <p>Auto, Mini, Sedan અને SUV માંથી તમારી જરૂરિયાત મુજબ પસંદ કરો.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">💰</div>
+            <div>
+              <strong>ભાડાની અંદાજિત ગણતરી</strong>
+              <p>રાઈડ પસંદગી અને અંતરના આધારે Demo Fare Calculator.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <div>
+              <strong>સુરક્ષાને પ્રાથમિકતા</strong>
+              <p>Driver Verification અને Ride Safety માટેની વ્યવસ્થા આગળના તબક્કામાં.</p>
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-white" href="#safety">સુરક્ષા વિશે જાણો</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div><strong>4 વાહન વિકલ્પ</strong><span>તમારી પસંદગી</span></div>
+    <div><strong>20% Demo Commission</strong><span>Owner Share</span></div>
+    <div><strong>મોબાઇલ ફ્રેન્ડલી</strong><span>સરળ બુકિંગ ડિઝાઇન</span></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Services</div>
+      <h2>દરેક સફર માટે અલગ વિકલ્પ</h2>
+      <p>Indian Taxi માં આગળના તબક્કામાં ઉપલબ્ધ કરાવી શકાય તેવી સેવાઓ.</p>
+    </div>
+
+    <div class="services">
+      <article class="service-card">
+        <div class="emoji">🛺</div>
+        <h3>City Auto</h3>
+        <p>શહેરની ટૂંકી મુસાફરી માટે Auto Ride બુકિંગનો વિકલ્પ.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="emoji">🚗</div>
+        <h3>City Taxi</h3>
+        <p>Mini, Sedan અને SUV દ્વારા શહેરની મુસાફરી માટેના વિકલ્પો.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="emoji">🛣️</div>
+        <h3>Outstation</h3>
+        <p>શહેર બહારની મુસાફરી માટે ભવિષ્યમાં અલગ બુકિંગ સેવા.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section driver-section" id="driver">
+  <div class="container driver-layout">
+    <div class="driver-copy">
+      <div class="eyebrow">Driver Partner</div>
+      <h2>તમારા વાહન સાથે કમાણીની નવી તક</h2>
+      <p>
+        Indian Taxi સાથે Driver Partner તરીકે જોડાવા માટે
+        તમારી પ્રાથમિક વિગતો દાખલ કરો.
+        વાસ્તવિક જોડાણ માટે દસ્તાવેજોની ચકાસણી જરૂરી રહેશે.
+      </p>
+      <div class="feature-list">
+        <div class="feature">
+          <div class="feature-icon">📋</div>
+          <div><strong>તમારી વિગતો</strong>
+            <p>નામ, મોબાઇલ અને વાહનની માહિતી.</p></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <div><strong>કમાણીનો હિસાબ</strong>
+            <p>પૂર્ણ થયેલી રાઈડ અને કમિશનનો રેકોર્ડ.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="driver-panel">
+      <h3>Driver Partner Registration</h3>
+      <form id="driverForm">
+        <label for="driverName">ડ્રાઈવરનું નામ</label>
+        <input id="driverName" name="driverName"
+          autocomplete="name" placeholder="પૂરું નામ" required>
+
+        <label for="driverPhone">મોબાઇલ નંબર</label>
+        <input id="driverPhone" name="driverPhone"
+          type="tel" inputmode="numeric"
+          pattern="[6-9][0-9]{9}" maxlength="10"
+          placeholder="10 અંકનો મોબાઇલ નંબર" required>
+
+        <label for="vehicleType">વાહનનો પ્રકાર</label>
+        <select id="vehicleType" name="vehicleType" required>
+          <option value="">વાહન પસંદ કરો</option>
+          <option>Auto</option>
+          <option>Mini</option>
+          <option>Sedan</option>
+          <option>SUV</option>
+        </select>
+
+        <label for="vehicleNumber">વાહન નંબર</label>
+        <input id="vehicleNumber" name="vehicleNumber"
+          placeholder="ઉદાહરણ: GJ01AB1234"
+          maxlength="15" required>
+
+        <button class="btn btn-yellow" type="submit">
+          પાર્ટનર રજીસ્ટ્રેશન આગળ વધારો
+        </button>
+
+        <p class="notice" id="driverMessage" aria-live="polite">
+          આ Demo ફોર્મ છે. માહિતી સર્વર પર સાચવવામાં આવતી નથી.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="safety">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Safety & Support</div>
+      <h2>સુરક્ષિત મુસાફરી માટે જવાબદાર વ્યવસ્થા</h2>
+      <p>વાસ્તવિક સેવા શરૂ કરતાં પહેલાં જરૂરી સુરક્ષા અને સપોર્ટ સુવિધાઓ અમલમાં મૂકવી પડશે.</p>
+    </div>
+
+    <div class="safety-grid">
+      <article class="safety-card">
+        <div class="feature-icon">🪪</div>
+        <h3>Driver Verification</h3>
+        <p>લાયસન્સ, વાહન દસ્તાવેજો અને યોગ્ય ચકાસણી પછી જ Driver Account સક્રિય કરવું.</p>
+      </article>
+
+      <article class="safety-card">
+        <div class="feature-icon">📍</div>
+        <h3>Ride Tracking</h3>
+        <p>Backend અને Location Permission દ્વારા ચાલુ રાઈડનું Live Tracking જોડવું.</p>
+      </article>
+
+      <article class="safety-card">
+        <div class="feature-icon">☎️</div>
+        <h3>Customer Support</h3>
+        <p>ફરિયાદ, રાઈડ સમસ્યા અને સુરક્ષા સહાય માટે સપોર્ટ વ્યવસ્થા બનાવવી.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="support">
+  <div class="container support-row">
+    <div>
+      <h2>Indian Taxi સાથે જોડાઓ</h2>
+      <p>Passenger અને Driver Partner માટે માહિતી અને સહાય.</p>
+    </div>
+    <a class="btn btn-yellow" href="#booking">રાઈડ બુકિંગ પર જાઓ ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <a class="brand" href="#home">INDIAN <span>TAXI 🚕</span></a>
+      <p>સફર તમારી, સેવા અમારી.</p>
+    </div>
+    <div>
+      <p>© 2026 Indian Taxi</p>
+      <p>Demo Website — Not a Live Ride Service</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const bookingForm = document.getElementById("bookingForm");
+const distanceInput = document.getElementById("distance");
+
+const fareDisplay = document.getElementById("fare");
+const ownerDisplay = document.getElementById("ownerAmount");
+const driverDisplay = document.getElementById("driverAmount");
+const bookingMessage = document.getElementById("bookingMessage");
+
+const rideInputs = document.querySelectorAll(
+  'input[name="rideType"]'
+);
+
+function money(amount) {
+  return "₹" + Math.round(amount).toLocaleString("en-IN");
+}
+
+function calculateFare() {
+  const distance = Number(distanceInput.value);
+  const selectedRide = document.querySelector(
+    'input[name="rideType"]:checked'
+  );
+
+  if (
+    !selectedRide ||
+    !Number.isFinite(distance) ||
+    distance < 1 ||
+    distance > 500
+  ) {
+    fareDisplay.textContent = "₹0";
+    ownerDisplay.textContent = "₹0";
+    driverDisplay.textContent = "₹0";
+    return null;
+  }
+
+  const baseFare = Number(selectedRide.dataset.base);
+  const rate = Number(selectedRide.dataset.rate);
+
+  // Demo calculation only.
+  const fare = baseFare + distance * rate;
+  const ownerCommission = fare * 0.20;
+  const driverShare = fare - ownerCommission;
+
+  fareDisplay.textContent = money(fare);
+  ownerDisplay.textContent = money(ownerCommission);
+  driverDisplay.textContent = money(driverShare);
+
+  return {
+    fare,
+    ownerCommission,
+    driverShare,
+    rideType: selectedRide.value
+  };
+}
+
+distanceInput.addEventListener("input", calculateFare);
+
+rideInputs.forEach(input => {
+  input.addEventListener("change", calculateFare);
+});
+
+bookingForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const result = calculateFare();
+
+  if (!result) {
+    bookingMessage.textContent =
+      "કૃપા કરીને 1 થી 500 કિમીનું અંતર દાખલ કરો.";
+    return;
+  }
+
+  bookingMessage.textContent =
+    "Demo ફોર્મ તપાસાયું. વાસ્તવિક રાઈડ બુક થઈ નથી. " +
+    "Backend અને Driver Matching જોડવાનું બાકી છે.";
+
+  alert(
+    "Indian Taxi Demo\n\n" +
+    "વાહન: " + result.rideType + "\n" +
+    "અંદાજિત ભાડું: " + money(result.fare) + "\n" +
+    "Owner Commission (20%): " +
+    money(result.ownerCommission) + "\n\n" +
+    "આ Demo છે. રાઈડ વાસ્તવમાં બુક થઈ નથી."
+  );
+});
+
+document.getElementById("driverForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("driverMessage").textContent =
+      "Demo ફોર્મ તપાસાયું. Driver Registration " +
+      "સર્વર પર સાચવવામાં આવ્યું નથી.";
+
+    alert(
+      "Indian Taxi Driver Registration Demo\n\n" +
+      "હાલમાં તમારી વિગતો સર્વર પર સાચવવામાં આવી નથી."
+    );
+  });
+
+calculateFare();
+</script>
 
 </body>
 </html>
